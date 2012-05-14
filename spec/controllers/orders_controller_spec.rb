@@ -21,6 +21,32 @@ describe OrdersController do
     end
   end
 
+  describe "GET import" do
+    it "responss to get" do
+      get :import, {}, valid_session
+    end
+  end
+
+  describe "POST parse" do
+    describe "with valid file" do
+      it "creates new Orders" do
+        expect {
+          post :parse, { :file => fixture_file_upload('/files/example_input.tab','text/tab-separated-values')}, valid_session
+        }.to change(Order, :count).by(4)
+        response.should redirect_to(orders_url)
+      end
+    end
+
+    describe "with invalid file" do
+      it "re-renders the 'import' template" do
+        # Trigger the behavior that occurs when invalid params are submitted
+        Parser.any_instance.stub(:import_orders!).and_return(false)
+        post :parse, { :file => nil }, valid_session
+        response.should render_template("import")
+      end
+    end
+  end
+
   describe "GET show" do
     it "assigns the requested order as @order" do
       order = Order.create! valid_attributes

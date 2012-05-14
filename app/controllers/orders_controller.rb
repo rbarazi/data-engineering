@@ -40,4 +40,16 @@ class OrdersController < ApplicationController
 
     redirect_to orders_url
   end
+
+  def import
+  end
+
+  def parse
+    if params[:file].present? && @orders = Parser.new(params[:file].read).import_orders!
+      @total = @orders.collect(&:total).sum
+      redirect_to orders_url, notice: "Parsed #{@orders.size} orders with total gross revenue of #{@total}"
+    else
+      render action: "import", error: 'Could not parse file.'
+    end
+  end
 end
