@@ -5,4 +5,10 @@ class Order < ActiveRecord::Base
   belongs_to :purchaser
 
   validates :quantity, presence: true
+
+  delegate :price, :name, to: :item, prefix: true
+
+  def total
+    @total ||= item_price * quantity
+  end
 end

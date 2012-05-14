@@ -10,6 +10,7 @@ describe Parser do
   context "importing orders" do
     it "imports orders" do
       expect { subject.import_orders! }.to change{ Order.count }.by(4)
+      Order.all.collect(&:total).sum.should eq(95)
     end
 
     it "imports merchants" do
