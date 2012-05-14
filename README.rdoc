@@ -1,4 +1,4 @@
-This application is available live at: http://lschallenge.rida.me
+This application is available live at: [http://lschallenge.rida.me](http://lschallenge.rida.me)
 
 == Minimum Requirements
 
@@ -15,10 +15,12 @@ This application is available live at: http://lschallenge.rida.me
 1. If you have RVM installed, the app ships with an .rvmrc file and it will create a new gemset for itself on your ruby 1.9.3-p194 installation.
 
 2. If you have bundler installed in your global gemset, skip to step 3. Otherwise, install bundler by running the command:
-    "gem install bundler"
+  gem install bundler
 
 3. Setup your database by running:
-    "bundle exec rake db:migrate"
+  bundle exec rake db:migrate
 
 4. Run the Rails server by running:
-    "bundle exec rails server"
+  bundle exec rails server
+or
+  bundle exec rails server thin
