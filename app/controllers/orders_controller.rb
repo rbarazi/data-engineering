@@ -49,7 +49,8 @@ class OrdersController < ApplicationController
       @total = @orders.collect(&:total).sum
       redirect_to orders_url, notice: "Parsed #{@orders.size} orders with total gross revenue of #{@total}"
     else
-      render action: "import", error: 'Could not parse file.'
+      flash[:error] = 'Could not parse file.'
+      render action: "import"
     end
   end
 end

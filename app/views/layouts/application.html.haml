@@ -25,27 +25,42 @@
           = link_to 'Data Engineering Challenge', root_path, class: 'brand'
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to "Import", import_orders_path
+              %li= link_to "Orders", orders_path
+              %li= link_to "Merchants", merchants_path
+              %li= link_to "Items", items_path
+              %li= link_to "Purchasers", purchasers_path
 
     .container
 
       .content
         .row
           .span9
+            - [:notice, :error, :alert].each do |level|
+              - unless flash[level].blank?
+                .alert{class: flash_class(level)}
+                  %a.close{href: '#'} x
+                  %p= flash[level]
             = yield
           .span3
             .well.sidebar-nav
-              %h3 Sidebar
+              %h3 Stats
               %ul.nav.nav-list
-                %li.nav-header Sidebar
-                %li= link_to "Link 1", "/path1"
-                %li= link_to "Link 2", "/path2"
-                %li= link_to "Link 3", "/path3"
+                %li
+                  %strong Total orders:
+                  = Order.count
+                %li
+                  %strong Total merchants:
+                  = Merchant.count
+                %li
+                  %strong Total purchaser:
+                  = Purchaser.count
+                %li
+                  %strong Total items:
+                  = Item.count
 
       %footer
-        %p &copy; Company 2012
+        %p &copy; Data Engineering Challenge 2012
     /
       Javascripts
       \==================================================
