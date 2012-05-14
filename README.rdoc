@@ -10,17 +10,28 @@ This application is available live at: http://lschallenge.rida.me
 
 4. RVM (optional)
 
-== Getting started
-
-1. If you have RVM installed, the app ships with an .rvmrc file and it will create a new gemset for itself on your ruby 1.9.3-p194 installation.
-
-2. If you have bundler installed in your global gemset, skip to step 3. Otherwise, install bundler by running the command:
+P.S. If you have RVM installed, the app ships with an .rvmrc file and it will create a new gemset for itself in your ruby 1.9.3-p194 installation.
+If you don't have bundler installed in your global gemset, make sure you install it in the current gemset by running the command:
   gem install bundler
 
-3. Setup your database by running:
+== Getting started
+1. Run bundle install:
+  bundle install
+
+2. Setup your database by running:
   bundle exec rake db:migrate
 
-4. Run the Rails server by running:
+2. Run the Rails server by running:
   bundle exec rails server
 or
   bundle exec rails server thin
+
+== Using the app
+
+The app requires authentication. You can either login with your Google account, Github account, or simply create a user account.
+
+Once you're logged in, you will be redirected to the import screen. You can upload the sample tab delimited file and the app will redirect you to the orders index page, with a success message detailing the total imported orders and the gross total revenue value.
+
+You can also browse the orders, merchants, items, and purchasers lists using the top nav.
+
+If you try to reimport the tab delimited file, only new orders will be created. Merchants, items, and purchasers will be referenced in the new orders correctly.

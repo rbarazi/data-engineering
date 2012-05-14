@@ -46,6 +46,9 @@
               %h3 Stats
               %ul.nav.nav-list
                 %li
+                  %strong Total gross revenue:
+                  = Order.all.collect(&:total).sum
+                %li
                   %strong Total orders:
                   = Order.count
                 %li
