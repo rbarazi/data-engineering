@@ -1,4 +1,6 @@
 DataEngineering::Application.routes.draw do
+  resources :merchants
+
   resources :items
 
   # The priority is based upon order of creation:

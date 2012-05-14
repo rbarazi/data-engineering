@@ -1,0 +1,20 @@
+- model_class = Merchant.new.class
+%h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:address)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @merchants.each do |merchant|
+      %tr
+        %td= link_to merchant.id, merchant_path(merchant)
+        %td= merchant.name
+        %td= merchant.address
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_merchant_path(merchant), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), merchant_path(merchant), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_merchant_path, :class => 'btn btn-primary'
