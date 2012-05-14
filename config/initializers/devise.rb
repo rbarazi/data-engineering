@@ -1,5 +1,8 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+require 'omniauth-github'
+require 'openid/store/filesystem'
+
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -211,6 +214,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  config.omniauth :github, '80b5c3175a17449bcdc1', '24e4983329083a409d8f5818915a6a54b82c8fda', :scope => 'user,public_repo'
+  config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', :require => 'omniauth-openid'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
