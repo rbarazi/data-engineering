@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe OrdersController do
-
+  login_user
+  
   def valid_attributes
     { quantity: 123 }
   end
@@ -10,7 +11,7 @@ describe OrdersController do
   # in order to pass any filters (e.g. authentication) defined in
   # OrdersController. Be sure to keep this updated too.
   def valid_session
-    {}
+    # {}
   end
 
   describe "GET index" do

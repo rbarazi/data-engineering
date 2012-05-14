@@ -19,9 +19,15 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# UI
 gem 'jquery-rails'
 gem "haml-rails", "~> 0.3.4"
 gem "twitter-bootstrap-rails", "~> 2.0.7"
+
+# Authentication
+gem 'devise'
+gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
+gem 'omniauth-openid', :git => 'git://github.com/intridea/omniauth-openid.git'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"

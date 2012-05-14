@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe MerchantsController do
+  login_user
 
   def valid_attributes
     { name: 'ABC', address: 'DEF' }
@@ -10,7 +11,7 @@ describe MerchantsController do
   # in order to pass any filters (e.g. authentication) defined in
   # MerchantsController. Be sure to keep this updated too.
   def valid_session
-    {}
+    # {}
   end
 
   describe "GET index" do

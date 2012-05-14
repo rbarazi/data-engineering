@@ -1,4 +1,6 @@
 DataEngineering::Application.routes.draw do
+  devise_for :users
+
   resources :orders do
     collection do
       get :import
