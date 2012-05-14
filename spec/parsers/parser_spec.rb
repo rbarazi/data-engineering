@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Parser do
-  subject { described_class.new("spec/files/example_input.tab") }
+  let(:csv_string) { IO.read("spec/files/example_input.tab") }
+  subject { described_class.new(csv_string) }
 
   context "loads file on initialize" do
     its(:table) { should be_an_instance_of(CSV::Table) }
