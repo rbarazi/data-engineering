@@ -1,0 +1,9 @@
+%h1 Import a tab delimited file
+
+= form_tag parse_orders_path, multipart: true, class: 'form-horizontal' do
+  .control-group
+    = label_tag :file, "File", class: 'control-label'
+    .controls
+      = file_field_tag :file, class: 'file_field'
+  .form-actions
+    = submit_tag 'Import'
