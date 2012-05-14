@@ -25,6 +25,7 @@ gem "twitter-bootstrap-rails", "~> 2.0.7"
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
+  gem "shoulda-matchers", "~> 1.1.0"
   gem "pry-rails", "~> 0.1.6"
   gem "guard-rspec", "~> 0.7.2"
 end
