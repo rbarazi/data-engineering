@@ -1,4 +1,6 @@
 DataEngineering::Application.routes.draw do
+  resources :purchasers
+
   resources :merchants
 
   resources :items
