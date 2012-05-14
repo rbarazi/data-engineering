@@ -41,25 +41,26 @@
                   %a.close{href: '#'} x
                   %p= flash[level]
             = yield
-          .span3
-            .well.sidebar-nav
-              %h3 Stats
-              %ul.nav.nav-list
-                %li
-                  %strong Total gross revenue:
-                  = Order.all.collect(&:total).sum
-                %li
-                  %strong Total orders:
-                  = Order.count
-                %li
-                  %strong Total merchants:
-                  = Merchant.count
-                %li
-                  %strong Total purchaser:
-                  = Purchaser.count
-                %li
-                  %strong Total items:
-                  = Item.count
+          - if user_signed_in?
+            .span3
+              .well.sidebar-nav
+                %h3 Stats
+                %ul.nav.nav-list
+                  %li
+                    %strong Total gross revenue:
+                    = Order.all.collect(&:total).sum
+                  %li
+                    %strong Total orders:
+                    = Order.count
+                  %li
+                    %strong Total merchants:
+                    = Merchant.count
+                  %li
+                    %strong Total purchaser:
+                    = Purchaser.count
+                  %li
+                    %strong Total items:
+                    = Item.count
 
       %footer
         %p &copy; Data Engineering Challenge 2012
