@@ -1,4 +1,4 @@
-This application is available live at: [http://lschallenge.rida.me](http://lschallenge.rida.me)
+This application is available live at: http://lschallenge.rida.me
 
 == Minimum Requirements
 
