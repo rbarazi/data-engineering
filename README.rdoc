@@ -28,7 +28,7 @@ or
 
 == Using the app
 
-The app requires authentication. You can either login using your Google account, Github account, or by simply creating a new user account.
+The app requires authentication. You can either login using your Google account, Github account, or by simply creating a new user account. Please note that the Github authentication will not work locally since it's configured to work with the live deployed site at: http://lschallenge.rida.me
 
 Once you're logged in, you will be redirected to the import screen. You can upload the sample tab delimited file and the app will redirect you to the orders index page with a success message detailing the total imported orders and the gross total revenue value.
 
