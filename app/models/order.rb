@@ -6,7 +6,9 @@ class Order < ActiveRecord::Base
 
   validates :quantity, presence: true
 
-  delegate :price, :name, to: :item, prefix: true
+  delegate :name, to: :purchaser, prefix: true
+  delegate :price, :description, to: :item, prefix: true
+  delegate :merchant_name, :merchant_address, to: :item
 
   def total
     @total ||= item_price * quantity

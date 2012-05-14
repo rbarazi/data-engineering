@@ -5,4 +5,6 @@ class Item < ActiveRecord::Base
   has_many   :orders
 
   validates :description, :price, presence: true
+
+  delegate :name, :address, to: :merchant, prefix: true
 end
